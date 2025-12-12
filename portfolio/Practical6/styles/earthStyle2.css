@@ -1,0 +1,182 @@
+/* BT. Mohlala*/
+/* CSIS1664 (2024) - Practical 6    */
+/* Filename: earthStyle2.css   */
+
+/* --- General Styles --- */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
+    background-color: #f0f8ff;
+    width: 800px;
+    margin: 10px auto;
+    border: 2px solid #333333;
+    box-shadow: 0 10px 20px 10px black;
+    background-image: url("../images/leaves.jpg");
+}
+
+ul {
+    margin: 10px 0;
+}
+
+blockquote {
+    border-left: 5px solid #228b22;
+    padding-left: 20px;
+}
+
+/* Add new General rules for Practical 6 here */
+
+/* --- Table Styles --- */
+/* 4.1 All tables */
+table{
+		width: 100%;/* 4.1.1 Width of 100% */
+		border-collapse: collapse;/* 4.1.2 Merge table borders */
+		margin: 20px 0;/* 4.1.3 Margin of 20px above and below the table, with no margins on the other sides */
+}
+
+/* 4.2 All tables, all table header cells, and all table data cells */
+table, th, td{
+		border: 1px solid #014017;/* 4.2.1 A 1px solid border in a #014017 colour */
+}
+
+/* 4.3	All table header cells and table data cells */
+th, td{
+		padding: 10px;/* 4.3.1 Padding of 10 pixels on all sides */
+		text-align: left;/* 4.3.2 Left-aligned text */
+}
+
+/* 4.4	All table header cells that appear inside the table header */
+thead th{
+		background-color: #47a644;/* 4.4.1 #47a644 background colour */
+		color: white;/* 4.4.2 White text */
+}
+
+/* 4.5	Odd-numbered rows within the table body */
+tbody tr:nth-child(2n+1){
+		background-color: #f0f8ff;/* 4.5.1 #f0f8ff background colour */
+}
+
+/* 4.6	Even-numbered rows within the table body */
+tbody tr:nth-child(even){
+		background-color: #d3e4cd;/* 4.6.1 #d3e4cd background colour */
+}
+
+/* 4.7	The first row in the table body */
+tbody tr:first-child{
+		border-top: 2px solid #014017;/* 4.7.1 Solid border of 2px at the top in a #014017 colour */
+}
+
+/* 4.8	The last table data cell in each row of the table body  */
+tbody tr td:last-child{
+		font-style: italic;/* 4.8.1 Italicised text */
+}
+
+/* 4.9	All caption elements */
+caption{
+		font-weight: bold;/* 4.9.1 Boldfaced text */
+		margin-bottom: 10px;/* 4.9.2 Margin of 10px below the caption */
+		text-align: left;/* 4.9.3 Left-aligned text */
+}
+
+/* --- Style classes --- */
+/* 4.10	Style class named cta-button */
+.cta-button{
+		position: absolute;/* 4.10.1 Removed from the normal document flow */
+		bottom: 10px;/* 4.10.2 Positioned 10px from the bottom */
+		right: 10px;/* 4.10.3 Positioned 10px from the right */
+		background-color: #47a644;/* 4.10.4 #47a644 background colour */
+		color: white;/* 4.10.5 White text */
+		padding: 10px 20px;/* 4.10.6 Padding of 10px on the top and bottom, and 20px on the left and right */
+		text-decoration: none;/* 4.10.7 No underlining */
+		border-radius: 5px;/* 4.10.8 Rounded corners of 5px */
+}
+
+/* 4.11	When the user moves the mouse pointer over an element that uses the cta-button style class */
+.cta-button:hover{
+		background-color: #3bbf44;/* 4.11.1 Change the background colour to #3bbf44 */
+}
+
+/* --- Divisions / Sections --- */
+
+header {
+    padding: 20px;
+    text-align: center;
+    background-color: #014017;
+}
+
+nav p {
+    background-color: #47a644;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 15px;
+}
+
+nav a:hover{
+        color: #ffa500;
+}
+
+    nav a.current {
+        color: #ffa500;
+        background-color: #ffffff;
+        border-radius: 5px;
+    }
+
+main {
+    padding: 20px;
+    background-color: #d3cebb;
+}
+
+    main h1 {
+        font-size: 2.5rem;
+        color: #228b22;
+        text-shadow: 2px 2px 4px gray;
+        margin-bottom: 10px;
+    }
+
+    main p {
+        line-height: 1.6;
+    }
+
+section h2 {
+    color: #2e8b57;
+    margin-top: 20px;
+    border-bottom: 2px solid #2e8b57;
+    padding-bottom: 5px;
+}
+
+/* New for Practical 6 */
+/* 4.12	A section element with the ID section1 */
+section#section1{
+	    position: relative;/* 4.12.1 Act as a reference point for absolutely positioned child elements */
+}
+
+
+section#section2 blockquote q {
+    color: hsla(120, 61%, 34%, 0.8);
+}
+
+footer {
+    background-color: #014017;
+    color: #ffffff;
+    text-align: right;
+    font-style: italic;
+    font-size: 0.8rem;
+    padding: 15px;
+}
+
+    footer a {
+        color: #3bbf44;
+    }
+
+    footer hr {
+        color: #3bbf44;
+    }
+
+
+

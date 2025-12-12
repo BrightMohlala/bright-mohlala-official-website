@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="robots" content="noindex, nofollow">
+  <title>Check Your Response</title>
+
+  <!-- Only use compat versions of Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #f3f8ff, #e6e6ff);
+      color: #333;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #4b3f72;
+    }
+
+    input {
+      width: 90%;
+      max-width: 400px;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      margin: 10px 0;
+    }
+
+    button {
+      background-color: #7868e6;
+      color: white;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #5f55c7;
+    }
+
+    #responseContainer {
+      margin-top: 30px;
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .floating-verse {
+      position: fixed;
+      bottom: 10px;
+      left: 15px;
+      background: #f0f4ff;
+      padding: 10px 15px;
+      border-radius: 12px;
+      font-size: 0.9em;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      color: #4b3f72;
+      max-width: 250px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Check Your Response 💬</h1>
+  <p>Enter the exact code you received after submitting your confession.</p>
+
+  <input type="text" id="codeInput" placeholder="Enter your code here" />
+  <br/>
+  <button onclick="checkResponse()">Check</button>
+
+  <div id="responseContainer"></div>
+
+  <div class="floating-verse">
+    "The Lord is close to the brokenhearted and saves those who are crushed in spirit." – Psalm 34:18
+  </div>
+
+  <script>
+    // Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyDoxfFAq8C0TmxBGDZV6HAmms2px-pWoQc",
+      authDomain: "anonymous-confessions-18.firebaseapp.com",
+      projectId: "anonymous-confessions-18",
+      storageBucket: "anonymous-confessions-18.firebasestorage.app",
+      messagingSenderId: "153740861501",
+      appId: "1:153740861501:web:c09c7634618ad5feea4a54",
+      measurementId: "G-3BY3W357LE"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // Notification for saved codes with responses
+    document.addEventListener('DOMContentLoaded', async function() {
+      const savedCodes = JSON.parse(localStorage.getItem('savedConfessionCodes') || '[]');
+      if (!savedCodes.length) return;
+      for (const code of savedCodes) {
+        try {
+          const doc = await db.collection('confessions').doc(code).get();
+          if (doc.exists && doc.data().response) {
+            const banner = document.createElement('div');
+            banner.style = 'background:#e0ffe0;color:#256029;padding:16px 10px;text-align:center;font-size:1.1em;border-radius:12px;margin-bottom:18px;box-shadow:0 2px 8px rgba(60,180,60,0.07);';
+            banner.innerHTML = `A response is ready for your confession (code: <b>${code}</b>)! <a href=\"check.html?code=${code}\" style=\"color:#256029;text-decoration:underline;font-weight:bold;\">View Response</a>`;
+            document.body.insertBefore(banner, document.body.firstChild);
+          }
+        } catch (e) {}
+      }
+    });
+
+    // Check response function
+    async function checkResponse() {
+      const input = document.getElementById("codeInput").value.trim();
+      const container = document.getElementById("responseContainer");
+
+      if (!input) {
+        container.innerHTML = "<p>Please enter a valid code.</p>";
+        return;
+      }
+
+      container.innerHTML = "Checking...";
+
+      try {
+        const doc = await db.collection("confessions").doc(input).get();
+        if (doc.exists) {
+          const data = doc.data();
+          container.innerHTML = `
+            <h3>Your Confession:</h3>
+            <p>${data.message || "(No message recorded)"}</p>
+            <h3>Response:</h3>
+            <p>${data.response || "Your response is on the way. Please check back later. 🕊️"}</p>
+          `;
+        } else {
+          container.innerHTML = `<p>No confession found for code <strong>${input}</strong>. Please try again.</p>`;
+        }
+      } catch (error) {
+        console.error("Error checking response:", error);
+        container.innerHTML = "<p>There was an error checking your response. Please try again later.</p>";
+      }
+    }
+  </script>
+</body>
+</html>

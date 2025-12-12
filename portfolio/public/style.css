@@ -1,0 +1,421 @@
+/* Global styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #f3f8ff, #e6e6ff);
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+h1 {
+  color: #4b3f72;
+  margin-bottom: 0.5em;
+  font-size: 2rem;
+  text-align: center;
+}
+
+p {
+  max-width: 600px;
+  margin: 0 auto 1.5em;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+textarea {
+  width: 100%;
+  min-width: 0;
+  max-width: 600px;
+  height: 180px;
+  padding: 18px;
+  border: 1.5px solid #ccc;
+  border-radius: 18px;
+  font-size: 1.15rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 12px rgba(120,104,230,0.10);
+  resize: vertical;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #7868e6;
+  box-shadow: 0 0 0 2px rgba(120, 104, 230, 0.2);
+}
+
+textarea.error {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
+}
+
+textarea.success {
+  border-color: #27ae60;
+  box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.2);
+}
+
+.validation-message {
+  margin-top: 8px;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+.validation-message.error {
+  color: #e74c3c;
+}
+
+.validation-message.success {
+  color: #27ae60;
+}
+
+.validation-message.info {
+  color: #7868e6;
+}
+
+.char-counter {
+  text-align: right;
+  font-size: 0.8em;
+  color: #666;
+  margin-top: 5px;
+}
+
+.char-counter.warning {
+  color: #f39c12;
+}
+
+.char-counter.error {
+  color: #e74c3c;
+}
+
+button {
+  background-color: #7868e6;
+  color: white;
+  padding: 14px 36px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #5f55c7;
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+a.check-link {
+  display: block;
+  margin-top: 25px;
+  color: #4b3f72;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a.check-link:hover {
+  text-decoration: underline;
+}
+
+.floating-verse {
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  background: #f0f4ff;
+  padding: 10px 15px;
+  border-radius: 12px;
+  font-size: 0.9em;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  color: #4b3f72;
+  max-width: 250px;
+  animation: fadeInUp 2s ease-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Confession display */
+.confession {
+  background: #fff;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 600px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  text-align: left;
+}
+
+.confession, .admin-entry {
+  background: white;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 700px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.confession:hover {
+  transform: translateY(-2px);
+}
+
+/* Reaction button */
+button.reaction {
+  background-color: #e0e7ff;
+  color: #4b3f72;
+  font-weight: bold;
+  border-radius: 12px;
+}
+
+button.reaction:hover {
+  background-color: #c7d2fe;
+}
+
+/* Status message */
+#status, #loginStatus {
+  text-align: center;
+  margin-top: 1em;
+  font-weight: 500;
+  color: #2e7d32;
+}
+
+.reactions {
+  margin-top: 10px;
+}
+.reactions button {
+  margin: 5px 5px 0 0;
+  padding: 6px 12px;
+  background: #ece8ff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background 0.3s ease;
+}
+.reactions button:hover {
+  background: #dcd5ff;
+}
+
+.center-container {
+  min-height: calc(100vh - 56px);
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: transparent;
+  padding: 4.5rem 1rem 1.5rem 1rem; /* top padding for navbar */
+  box-sizing: border-box;
+}
+
+#confession-form {
+  width: 100%;
+  max-width: 600px;
+  margin: 2.5rem auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  box-sizing: border-box;
+}
+
+.navbar {
+  width: 100%;
+  background: #f3f8ff;
+  box-shadow: 0 2px 8px rgba(120,104,230,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  min-height: 56px;
+  height: 56px;
+}
+
+.navbar-logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #4b3f72;
+  padding: 0;
+  letter-spacing: 1px;
+  line-height: 56px;
+  margin-right: 2rem;
+}
+
+.navbar-links {
+  list-style: none !important;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  height: 56px;
+  transition: max-height 0.3s ease;
+}
+
+@media (max-width: 800px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 0 1rem;
+    justify-content: space-between;
+  }
+  .navbar-logo {
+    margin-right: 0;
+  }
+  .navbar-links {
+    list-style: none !important;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    background: #f3f8ff;
+    flex-direction: column;
+    align-items: flex-start;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    box-shadow: 0 2px 8px rgba(120,104,230,0.07);
+    z-index: 999;
+    display: flex;
+  }
+  .navbar-links li {
+    width: 100%;
+  }
+  .navbar-links li a {
+    display: block;
+    width: 100%;
+    padding: 1rem 2rem;
+  }
+  .navbar-toggle:checked ~ .navbar-links {
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 1rem;
+  }
+  .navbar-icon {
+    display: flex;
+  }
+  .center-container {
+    max-width: 100vw;
+    padding: 4.5rem 0.5rem 1rem 0.5rem;
+  }
+  #confession-form {
+    max-width: 100vw;
+  }
+  textarea {
+    max-width: 100vw;
+  }
+}
+
+/* Active link styling (JS will add .active) */
+.navbar-links li a.active {
+  background: #7868e6;
+  color: #fff;
+}
+
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  textarea, input[type="text"], input[type="email"], input[type="password"] {
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 0.95rem;
+  }
+}
+
+/* Hamburger icon styling */
+.navbar-icon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.navbar-icon span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #4b3f72;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 800px) {
+  .navbar-icon {
+    display: flex;
+  }
+
+  .navbar-toggle {
+    display: none;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    background: #f3f8ff;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .navbar-toggle:checked ~ .navbar-links {
+    max-height: 300px;
+  }
+
+  /* Optional: animate the hamburger to "X" when open */
+  .navbar-toggle:checked + .navbar-icon span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .navbar-toggle:checked + .navbar-icon span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar-toggle:checked + .navbar-icon span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+}
+

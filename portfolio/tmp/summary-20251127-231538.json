@@ -1,0 +1,5 @@
+{
+  "summary": "Updated the icon path to include the correct folder location. Changed all icon references from 'Personal Logo.jpg' to 'Bright Mohlala/Personal Logo.jpg' in creator.html, index.html, entrepreneur.html, and leader.html.",
+  "current_status": "All page icons now correctly point to 'Bright Mohlala/Personal Logo.jpg' in the Bright Mohlala folder. All 4 main pages have been updated with the correct path."
+}
+

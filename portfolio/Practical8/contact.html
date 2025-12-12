@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- BT. Mohlala -->
+<!-- CSIS1664 (2024) -->
+<!-- Filename: contact.html -->
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>EarthWiseSA - Contact Us</title>
+        
+        <!-- Custom styling -->
+        <link rel="stylesheet" href="styles/custom.css">
+    </head>
+    <body>
+        <!-- Header -->
+        <header>
+            <img src="images/logo.jpg" alt="EarthWiseSA Logo">
+        </header>
+
+        <!-- Navigation -->
+        <nav>
+            <p>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="initiatives.html">Initiatives</a>
+                <a href="contact.html" class="current">Contact Us</a>
+            </p>
+        </nav>
+
+        <!-- Main content -->
+        <main>
+            <h1>Contact Us</h1>
+            <p>
+                If you have any questions, suggestions, or want to get involved, feel free to reach out to us through
+                the form below:
+            </p>
+
+            <!-- Contact Form -->
+            <form action="thankyou.html" method="get">
+                <!-- Full Name -->
+                <p>
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" autofocus required />
+                </p>
+
+                <!-- Email -->
+                <p>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required />
+                </p>
+
+                <!-- Drop-down List -->
+                <p>
+                    <label for="topic">Topic of Inquiry:</label>
+                    <select id="topic" name="topic">
+                        <option value="general">General Inquiry</option>
+                        <option value="volunteer">Volunteering Opportunities</option>
+                        <option value="partnership">Partnerships and Collaboration</option>
+                        <option value="other">Other</option>
+                    </select>
+                </p>
+
+                <!-- Message -->
+                <p>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </p>
+
+                <!-- Radio Buttons (Preferred Contact Method) -->
+                <fieldset>
+                    <legend>Preferred Contact Method</legend>
+                    <input type="radio" id="email-contact" name="contact-method" value="email" checked />
+                    <label for="email-contact">Email</label><br />
+                    <input type="radio" id="phone-contact" name="contact-method" value="phone" />
+                    <label for="phone-contact">Phone</label><br />
+                    <input type="radio" id="mail-contact" name="contact-method" value="mail" />
+                    <label for="mail-contact">Mail</label>
+                </fieldset>
+
+                <!-- Buttons -->
+                <p>
+                    <input type="submit" value="Send Message" />
+                    <input type="reset" value="Clear Form" />
+                </p>
+            </form>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <hr>
+            <p>Created by: <a href="../myindex.html">BT. Mohlala</a></p>
+            <p>&copy; 2024 University of the Free State</p>
+        </footer>
+    </body>
+</html>
