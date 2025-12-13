@@ -1,5 +1,0 @@
-{
-  "summary": "Deleted about.html page and replaced the About link in all navbars with a dropdown menu. Added CSS for dropdown functionality with hover and focus states. Updated all main pages (index.html, creator.html, tutor.html, leader.html, entrepreneur.html, contact.html, experience.html, skills.html, projects.html) to include a dropdown menu under 'About' that links to the four role pages: Leader, Entrepreneur, Creator, and Tutor. Added mobile-responsive styles for the dropdown menu.",
-  "current_status": "About page deleted and replaced with dropdown menu across all pages. The dropdown menu appears on hover/click and contains links to Leader, Entrepreneur, Creator, and Tutor pages. Mobile-responsive styles added for proper dropdown functionality on smaller screens."
-}
-

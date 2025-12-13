@@ -1,5 +1,0 @@
-{
-  "summary": "Replaced the favicon/icon image from BM.png to Personal Logo.jpg across all pages. Updated 4 HTML files: creator.html, index.html, entrepreneur.html, and leader.html. Changed the icon path from 'Bright Mohlala/BM.png' to 'Personal Logo.jpg' in all instances.",
-  "current_status": "All page icons successfully updated to use Personal Logo.jpg instead of BM.png. The favicon reference has been changed in all 4 main pages (creator, index, entrepreneur, and leader)."
-}
-
