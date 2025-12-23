@@ -1,0 +1,5 @@
+{
+  "summary": "Reverted changes to restore mobile-only hamburger menu functionality. Hamburger menu is now only visible on mobile devices (max-width: 767px), and navbar remains visible on desktop. Updated CSS to hide hamburger on desktop and show it only on mobile. Updated JavaScript to use 'open' class instead of 'collapsed' class for mobile menu toggle. Navbar links are visible on desktop by default, and hamburger menu works correctly on mobile phones.",
+  "current_status": "Hamburger menu reverted to mobile-only implementation. Desktop navbar is visible and functional. Mobile hamburger menu works correctly for phones. All pages updated consistently."
+}
+

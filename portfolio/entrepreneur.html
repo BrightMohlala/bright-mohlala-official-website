@@ -34,11 +34,16 @@
     <!-- Header -->
     <header>
       <div class="nav-wrapper">
+        <button class="menu-toggle" aria-label="Toggle navigation menu">
+          <span class="hamburger"></span>
+          <span class="hamburger"></span>
+          <span class="hamburger"></span>
+        </button>
         <nav>
           <ul>
             <li><a href="index.html">Home</a></li>
             <li>
-              <a href="#">About</a>
+              <a href="#">About <span class="dropdown-icon">▼</span></a>
               <ul class="dropdown">
                 <li><a href="leader.html">Leader</a></li>
                 <li><a href="entrepreneur.html">Entrepreneur</a></li>
@@ -155,6 +160,58 @@
       <p>&copy; 2025 Bright Mohlala. All rights reserved.</p>
     </div>
   </footer>
+    <script>
+    // Toggle mobile menu
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav');
+      
+      if (menuToggle && nav) {
+        menuToggle.addEventListener('click', () => {
+          menuToggle.classList.toggle('open');
+          nav.classList.toggle('open');
+        });
+        
+        // Handle About dropdown button click on mobile
+        const aboutLink = nav.querySelector('a[href="#"]');
+        if (aboutLink) {
+          aboutLink.addEventListener('click', function(e) {
+            if (window.innerWidth <= 767) {
+              e.preventDefault();
+              const dropdown = this.nextElementSibling;
+              if (dropdown && dropdown.classList.contains('dropdown')) {
+                // Toggle dropdown
+                const isOpen = dropdown.style.maxHeight && dropdown.style.maxHeight !== '0px';
+                dropdown.style.maxHeight = isOpen ? '0' : '500px';
+              }
+            }
+          });
+        }
+        
+        // Close menu when clicking on dropdown links (but not the About link itself)
+        const dropdownLinks = nav.querySelectorAll('.dropdown a');
+        dropdownLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            if (window.innerWidth <= 767) {
+              menuToggle.classList.remove('open');
+              nav.classList.remove('open');
+            }
+          });
+        });
+        
+        // Close menu when clicking on other nav links (not About)
+        const otherNavLinks = nav.querySelectorAll('li > a:not([href="#"])');
+        otherNavLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            if (window.innerWidth <= 767) {
+              menuToggle.classList.remove('open');
+              nav.classList.remove('open');
+            }
+          });
+        });
+      }
+    });
+</script>
 </body>
 </html>
 

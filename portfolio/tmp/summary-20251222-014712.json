@@ -1,0 +1,5 @@
+{
+  "summary": "Centered the hamburger menu icon on mobile devices by changing position from 'right: 1rem' to 'left: 50%' with 'transform: translateX(-50%)'. Fixed About dropdown functionality on mobile by adding JavaScript to handle click events on the About link - it now prevents default navigation and toggles the dropdown menu on mobile. Updated all HTML pages (index, leader, entrepreneur, creator, tutor, contact, projects, skills, privacypolicy, terms-conditions) with the improved JavaScript that distinguishes between the About link (which toggles dropdown) and other links (which close the menu).",
+  "current_status": "Hamburger menu icon is now centered on mobile. About dropdown works correctly on mobile - clicking About toggles the dropdown, and clicking dropdown items closes the menu. All pages updated consistently."
+}
+
