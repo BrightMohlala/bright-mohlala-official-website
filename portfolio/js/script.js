@@ -30,4 +30,38 @@ function testFirebaseConnection() {
 // Test connection on page load
 document.addEventListener('DOMContentLoaded', function() {
   testFirebaseConnection();
+
+  // Mobile Menu Toggle
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+
+  if (menuToggle && nav) {
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('open');
+      nav.classList.toggle('open');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target) && !menuToggle.contains(e.target) && nav.classList.contains('open')) {
+        menuToggle.classList.remove('open');
+        nav.classList.remove('open');
+      }
+    });
+
+    // Close menu when clicking a link
+    const navLinks = nav.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        // Don't close if it's a dropdown toggle (if applicable), 
+        // but existing CSS handles hover for dropdowns, so simple links should close it.
+        // If the link has a sibling ul (dropdown), maybe we want to keep it open?
+        // But the user just asked for the menu to be collapsed.
+        if (!link.nextElementSibling || link.nextElementSibling.tagName !== 'UL') {
+             menuToggle.classList.remove('open');
+             nav.classList.remove('open');
+        }
+      });
+    });
+  }
 });
